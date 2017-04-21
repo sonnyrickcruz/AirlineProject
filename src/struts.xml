@@ -98,7 +98,7 @@
 		
 		<action name="select-flight-submit" class="com.airline.action.SelectFlightAction"
 			method="executeSubmitAction">
-			<result name="success" type="redirectAction">add-ons</result>
+			<result name="success" type="redirectAction">select-seat</result>
 		</action>
 		
 		<action name="add-ons" class="com.airline.action.AddonsAction"
@@ -132,6 +132,11 @@
 			method="execute">
 			<interceptor-ref name="defaultStack" />
 			<result name="input" type="tiles">addFlights.page</result>
+		</action>
+		<action name="select-seat" class="com.airline.action.SelectSeatAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<result name="input" type="tiles">selectSeat.page</result>
 		</action>
 	</package>
 </struts>
