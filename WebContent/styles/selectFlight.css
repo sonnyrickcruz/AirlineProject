@@ -1,0 +1,26 @@
+.flight-date {
+	cursor: pointer;
+}
+
+#dateTabs {
+	display: inline-block;
+}
+
+.nav-btn {
+	width: 20px;
+	height: 30px;
+	margin-top: -20px;
+}
+
+#wrapper {
+	width: 900px;
+	margin: 0 auto;
+}
+
+#flightsTbl td {
+	width: 100px;
+}
+
+#flightsTbl tbody tr {
+	cursor: pointer;
+}
