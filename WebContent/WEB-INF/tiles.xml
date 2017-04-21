@@ -67,7 +67,7 @@
 		<put-attribute name="customCSS" value="./styles/searchFlights.css"/>
   	</definition>
   	
-  	<definition name="selectFlight.page" extends="baseLayout">
+  	<definition name="selectFlight.page" extends="bookingLayout">
  		<put-attribute name="title" value="Select Flight"/>
 		<put-attribute name="body" value="/pages/selectFlight.jsp"/>
 		<put-attribute name="customJS" value="./scripts/selectFlight.js"/>
@@ -90,6 +90,13 @@
 		<put-attribute name="body" value="/pages/addons.jsp"/>
 		<put-attribute name="customJS" value="./scripts/addons.js"/>
 		<put-attribute name="customCSS" value="./styles/addons.css"/> 
+  	</definition>
+  	
+  	<definition name="selectSeat.page" extends="bookingLayout">
+  		<put-attribute name="title" value="Select Seat"/>
+		<put-attribute name="body" value="/pages/select-seat.jsp"/>
+		<put-attribute name="customJS" value="./scripts/select-seat.js"/>
+		<put-attribute name="customCSS" value="./styles/select-seat.css"/> 
   	</definition>
   	<!-- <definition name="addons.page" extends="baseLayout">
  		<put-attribute name="title" value="Add ons"/>

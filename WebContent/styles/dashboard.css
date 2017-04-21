@@ -12,17 +12,29 @@
 .carousel-control{
 	height:290px;
 	border: solid;
-	margin: 0px 20%;
+	margin: 0 auto;
     width: 60%;
 }
+#wrapper{
+	margin-top: 20px;
+	position: absolute; 
+	left: 50%;
+}
 #bookingWrapper{
-	height:100%;
-	background-color: rgba(0,0,0,0.5); 
-	border: solid red;
-	
+	min-width: 420px;
+	padding: 15px;
+	position: relative;
+	left: -50%;
+	color: #fff;
+	background-color: rgba(0,0,0,0.7);
+	z-index: 1;
 }
 #myCarousel{
 	height: 675px;
+}
+.btn-div{
+	text-align: right;
+	margin-bottom: 0;
 }
 .ui-helper-hidden-accessible{
 	z-index:2147483647;
