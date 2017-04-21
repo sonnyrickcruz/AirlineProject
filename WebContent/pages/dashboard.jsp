@@ -6,6 +6,47 @@
 <s:set var="paxSession" value="%{#session.ticket.flight.route.pax}"/>
 <s:set var="route" value="%{#session.ticket.flight.route.routeId}"/>
 
+<div id="wrapper">
+<div id="bookingWrapper">
+	<form action="search-flights-submit" method="POST">
+		<input type="hidden" id="route" name="route" value="${route}">
+		<div class="form-group">
+			<label for="origin"> Origin: </label> <input type="text" class="form-control" id="searchOrigin" name="searchOrigin" value="${originSession}">
+		</div>
+		<div class="form-group">
+			<label for="destination"> Destination: </label> <input type="text" class="form-control" id="searchDestination" name="searchDestination" value="${destinationSession}">
+			<!-- <input type="text" id="destinationDate" class="date-picker"> -->
+		</div>
+		<div class="form-group">
+			<label for="departureDate" class="control-label">
+				Departure Date: </label>
+			<div class="controls">
+				<div class="input-group">
+					<input id="departureDate" type="text" class="date-picker form-control" name="searchDepartureDate" value="${departureSession}" /> 
+					<label for="departureDate" class="input-group-addon btn">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="noOfPax"> Passengers: </label> <select
+				class="form-control" id="noOfPax" name="noOfPax">
+				<s:iterator status="rowStatus"
+					value='{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}'>
+					<option <s:if test="%{#rowStatus.count == #paxSession}"> selected </s:if>>
+						<s:property value="%{#rowStatus.count}" />
+					</option>
+				</s:iterator>
+			</select>
+		</div>
+		<div class="form-group btn-div">
+			<button type="submit" id="searchFlight" class="btn btn-default"> Search for Flights</button>
+		</div>
+	</form>
+</div>
+</div>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
@@ -60,45 +101,6 @@
 					Pellentesque eu venenatis sem. Aliquam erat volutpat. Pellentesque
 					hendrerit turpis nec quam venenatis, et luctus leo sodales. Cras id
 					orci efficitur, blandit nibh a, lacinia purus.</p>
-			</div>
-		</div>
-
-		<div class="right carousel-control">
-			<div id="bookingWrapper">
-				<form action="search-flights-submit" method="POST">
-					<input type="hidden" id="route" name="route" value="${route}">
-					<div class="form-group">
-						<label for="origin"> Origin: </label> <input type="text" class="form-control" id="searchOrigin" name="searchOrigin" value="${originSession}">
-					</div>
-					<div class="form-group">
-						<label for="destination"> Destination: </label> <input type="text" class="form-control" id="searchDestination" name="searchDestination" value="${destinationSession}">
-						<!-- <input type="text" id="destinationDate" class="date-picker"> -->
-					</div>
-					<div class="form-group">
-						<label for="departureDate" class="control-label">
-							Departure Date: </label>
-						<div class="controls">
-							<div class="input-group">
-								<input id="departureDate" type="text" class="date-picker form-control" name="searchDepartureDate" value="${departureSession}" /> 
-								<label for="departureDate" class="input-group-addon btn">
-									<span class="glyphicon glyphicon-calendar"></span>
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="noOfPax"> Passengers: </label> <select
-							class="form-control" id="noOfPax" name="noOfPax">
-							<s:iterator status="rowStatus"
-								value='{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}'>
-								<option <s:if test="%{#rowStatus.count == #paxSession}"> selected </s:if>>
-									<s:property value="%{#rowStatus.count}" />
-								</option>
-							</s:iterator>
-						</select>
-					</div>
-					<button type="submit" id="searchFlight" class="btn btn-default"> Search for Flights</button>
-				</form>
 			</div>
 		</div>
 	</div>
