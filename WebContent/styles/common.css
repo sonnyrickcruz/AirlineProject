@@ -6,9 +6,18 @@ body{
 	overflow-y: scroll;
 }
 
+header {
+	height: 60px;
+}
+
+header h1 {
+	line-height: 20px;
+}
+
 #header{
+	height: inherit;
 	background: #7B2D26;
-	color: #fff
+	color: #fff;
 }
 .headerText{
 	color:#fff;
@@ -23,7 +32,7 @@ body{
 
 #loginButton{
 	float: right;
-	margin:15px;
+	margin:5px;
 }
 
 #loginWrapper{
@@ -33,7 +42,7 @@ body{
 }
 #userWrapper{
     width: 400px;
-    margin-top: -4%;
+    margin-top: 4%;
     margin-right: 6.2%;
 }
 

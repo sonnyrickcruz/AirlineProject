@@ -44,13 +44,11 @@ public class SelectFlightsManager {
 		return flightList;
 	}
 	
-	public FlightBean retrieveFlightById(String id) throws ConnectionException, SystemException, BusinessException {
+	public void retrieveFlightById(FlightBean flight, String id) throws ConnectionException, SystemException, BusinessException {
 		log.debug("START - retrieveFlightById id: " + id);
-		
-		FlightBean flight = null;
 		SelectFlightDao selectFlightDao = new SelectFlightDao();
 		try {
-			flight = selectFlightDao.getFlightById(id);
+			selectFlightDao.getFlightById(flight, id);
 		} catch (SystemException | ConnectionException e) {
 			throw e;
 		} catch (Exception e) {
@@ -59,6 +57,5 @@ public class SelectFlightsManager {
 		}
 		
 		log.debug("END - retrieveFlightById");
-		return flight;
 	}
 }

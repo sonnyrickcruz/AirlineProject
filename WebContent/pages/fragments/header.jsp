@@ -2,10 +2,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <header>
 	 	<div id="header" class="container-fluid">
-		    <div class="navbar-header col-md-8">
+		    <div class="navbar-header">
 		    	<h1>Airline Project</h1>
 		    </div>
-	    	<div class="col-md-4 dropdown">
+	    	<div class="dropdown">
 	    		<s:if test="%{#session.userInfo}">
 					<button id="loginButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 				     	 <h5><strong>${userInfo.firstName} ${userInfo.lastName}</strong></h5>
