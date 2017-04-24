@@ -11,7 +11,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.airline.bean.FlightBean;
-import com.airline.constant.MyFlightsSqlConstants;
 import com.airline.exception.ConnectionException;
 import com.airline.exception.SystemException;
 
@@ -83,15 +82,13 @@ public class SelectFlightDao extends BaseDao {
 	
 
 	
-	public FlightBean getFlightById(String id) throws SystemException, ConnectionException {
+	public void getFlightById(FlightBean flight, String id) throws SystemException, ConnectionException {
 		log.debug("START - getFlightById id: " + id);
-		FlightBean flightBean = null;
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			flightBean = new FlightBean();
 			conn = getConnection();
 			ps = conn.prepareStatement("SELECT flight_id, airplane_id, route_id, DATE(arrival_schedule) as arrival_date, TIME(arrival_schedule) as arrival_time, DATE(departure_schedule) as departure_date, TIME(departure_schedule) as departure_time, user_carrier_id, remove_id, created_on FROM flight WHERE flight_id = ?");
 			ps.setString(1, id);
@@ -99,13 +96,13 @@ public class SelectFlightDao extends BaseDao {
 
 			if (rs.next()) {
 				
-				flightBean.setFlightId(rs.getString("flight_id"));
+				flight.setFlightId(rs.getString("flight_id"));
 				//departure date and time
-				flightBean.setDepartureDate(rs.getString("departure_date"));
-				flightBean.setDepartureTime(rs.getString("departure_time"));
+				flight.setDepartureDate(rs.getString("departure_date"));
+				flight.setDepartureTime(rs.getString("departure_time"));
 				//arrival date and time
-				flightBean.setArrivalDate(rs.getString("arrival_date"));
-				flightBean.setArrivalTime(rs.getString("arrival_time"));
+				flight.setArrivalDate(rs.getString("arrival_date"));
+				flight.setArrivalTime(rs.getString("arrival_time"));
 			}
 
 		} catch (ConnectionException e) {
@@ -123,7 +120,6 @@ public class SelectFlightDao extends BaseDao {
 			closeResources(conn, ps, rs);
 		}
 		log.debug("END");
-		return flightBean;
 	}
 
 }
