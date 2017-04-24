@@ -26,7 +26,9 @@ public class SelectFlightAction extends BaseAction {
 	public String execute() {
 		log.debug("start action");
 		String result = input;
-		
+
+		TicketBean ticket = (TicketBean) session.get("ticket");
+		log.debug(ticket);
 		log.debug("end action - result: " + result);
 		return result;
 	}
@@ -42,6 +44,7 @@ public class SelectFlightAction extends BaseAction {
 		
 		try {
 			TicketBean ticket = (TicketBean) session.get("ticket");
+			log.debug(ticket);
 			String routeId = ticket.getFlight().getRoute().getRouteId();
 			departureDate = DateUtil.toMySqlDateString(departureDate);
 			
@@ -69,11 +72,12 @@ public class SelectFlightAction extends BaseAction {
 		try {
 			SelectFlightsManager selectFlightsManager = new SelectFlightsManager();
 			TicketBean ticket = (TicketBean) session.get("ticket");
+			log.debug("beforesubmit: " + ticket);
+			log.debug(ticket);
 			if (ticket != null) {
-				ticket.setFlight(selectFlightsManager.retrieveFlightById(flightId));
-				log.debug(selectFlightsManager.retrieveFlightById(flightId));
+				selectFlightsManager.retrieveFlightById(ticket.getFlight(), flightId);
 			}
-			
+			log.debug("pagkasubmit: " + ticket);
 			session.put("ticket", ticket);
 		} catch (Exception e) {
 			log.error(e);
