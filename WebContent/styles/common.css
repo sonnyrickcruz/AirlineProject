@@ -132,10 +132,6 @@ header a:hover {
 	color: red;
 	text-align: center;
 }
-/* SIDEBAR */
-#sidebar{
-	
-}
 #bookingSummary{
 	text-align: center;
     font-weight: bold;
@@ -183,9 +179,32 @@ header a:hover {
 }
 /* NANO SCROLLER */
 .nano { 
-	background: #bcb8b8 !important;  
+	background: #efefef;  
 	height: 670px; 
 }
-.nano .nano-content { padding: 10px; }
+.nano .nano-content { padding: 0 30px; }
 .nano .nano-pane   { background: #888; }
 .nano .nano-slider { background: #111; }
+
+/* SIDEBAR */
+#sidebar{
+	border-radius: 5px;
+}
+
+#sidebarTitle {
+	text-align: center;
+	font-size: 25px;
+}
+.sidebarHeader {
+	font-size: 20px;
+	margin: 10px 0 3px 0;
+	font-weight: bold;
+}
+#sidebar hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 1em 0;
+    padding: 0;
+}
