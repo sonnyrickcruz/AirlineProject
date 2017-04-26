@@ -98,6 +98,13 @@
 		<put-attribute name="customJS" value="./scripts/select-seat.js"/>
 		<put-attribute name="customCSS" value="./styles/select-seat.css"/> 
   	</definition>
+  	
+  	<definition name="passengerDetails.page" extends="bookingLayout">
+  		<put-attribute name="title" value="Passenger Details"/>
+		<put-attribute name="body" value="/pages/passengerDetails.jsp"/>
+		<put-attribute name="customJS" value="./scripts/passengerDetails.js"/>
+		<put-attribute name="customCSS" value="./styles/passengerDetails.css"/> 
+  	</definition>
   	<!-- <definition name="addons.page" extends="baseLayout">
  		<put-attribute name="title" value="Add ons"/>
 		<put-attribute name="body" value="/pages/addons.jsp"/>

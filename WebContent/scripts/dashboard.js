@@ -10,12 +10,6 @@ $(document).ready(function(){
 	    pause: "false"
 	});
 	init();
-	$(".date-picker").datepicker({
-        changeMonth: true,
-        changeYear: true,
-        minDate: 0,
-        dateFormat: "mm/dd/yy"
-	});
 	$(document).on("blur", "#searchOrigin", function(){
 		origin = $(this).val();
 		var keys = $.map(originList, function(element,index) {return index});

@@ -177,10 +177,19 @@ header a:hover {
 .shown {
 	display: block;
 }
+
+.fa-rotate-45 {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
 /* NANO SCROLLER */
 .nano { 
 	background: #efefef;  
-	height: 670px; 
+	max-height: 670px; 
 }
 .nano .nano-content { padding: 0 30px; }
 .nano .nano-pane   { background: #888; }
@@ -188,7 +197,9 @@ header a:hover {
 
 /* SIDEBAR */
 #sidebar{
-	border-radius: 5px;
+	border-radius: 10px;
+	padding-bottom: 15px;
+	height: 900px;
 }
 
 #sidebarTitle {
