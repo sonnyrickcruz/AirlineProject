@@ -29,7 +29,7 @@
 					</div>
 				</s:if>
 				<s:else>
-					<button id="loginButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="modal" data-target="#loginModal">
+					<button id="loginButton" type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="modal" data-target="#loginModal">
 				      <h5>Log In</h5>
 				    </button>
 					<div id="loginModal" class="modal fade" role="dialog">

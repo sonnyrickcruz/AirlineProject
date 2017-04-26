@@ -8,6 +8,12 @@ $(document).ready(function(){
 		preventPageScrolling: true
 	});
 	//
+	$(".date-picker").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        minDate: 0,
+        dateFormat: "mm/dd/yy"
+	});
 	$("#loginSubmitButton").on("click", function(){
 		var username = $("#username").val();
 		var password = $("#password").val();
