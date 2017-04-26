@@ -24,6 +24,9 @@ $(document).ready(function() {
 		var isDisabled = $(this).find('input[type=radio]').prop('disabled');
 		if (!isDisabled) {
 			$(this).find('input[type=radio]').prop('checked', true);
+			$("#departure").text(selectedDate.getFullYear(selectedDate)  + "-" + ("0" + (selectedDate.getMonth(selectedDate) + 1)).toString().slice(-2) + "-" + selectedDate.getDate(selectedDate) + " | " + $(this).find('.flightDepartureTime').text());
+			$("#arrival").text(selectedDate.getFullYear(selectedDate)  + "-" + ("0" + (selectedDate.getMonth(selectedDate) + 1)).toString().slice(-2) + "-" + selectedDate.getDate(selectedDate) + " | " + $(this).find('.flightArrivalTime').text());
+			$(this).find('.flightPrice').text();
 		}
 	});
 });

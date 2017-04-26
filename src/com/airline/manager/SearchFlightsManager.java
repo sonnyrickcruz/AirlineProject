@@ -195,7 +195,6 @@ public class SearchFlightsManager {
 			route.setOrigin(origin);
 			FlightBean flight = new FlightBean();
 			flight.setRoute(route);
-			ticket.setRoute(route);
 			ticket.setFlight(flight);
 
 			// Set the User who will be booking the flight

@@ -4,7 +4,9 @@ import org.apache.log4j.Logger;
 
 public class PassengerDetailsAction extends BaseAction {
 	private Logger log = Logger.getLogger(this.getClass());
-
+	private String[] firstName;
+	private String[] lastName;
+	private String[] birthDate;
 	/**
 	 * displays the passenger details input
 	 * 
@@ -18,32 +20,47 @@ public class PassengerDetailsAction extends BaseAction {
 		return result;
 	}
 
+	public Logger getLog() {
+		return log;
+	}
+
+	public void setLog(Logger log) {
+		this.log = log;
+	}
+
+	public String[] getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String[] firstName) {
+		this.firstName = firstName;
+	}
+
+	public String[] getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String[] lastName) {
+		this.lastName = lastName;
+	}
+
+	public String[] getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(String[] birthDate) {
+		this.birthDate = birthDate;
+	}
+
 	/**
 	 * description
 	 * 
 	 * @param result
 	 */
-	public String executeAction() {
+	public String executeSubmit() {
 		log.debug("start action");
 		String result = input;
 
-		// execute Logic
-/*		ManagerTemplate managerTemplate = new ManagerTemplate();
-		try {
-			List<String> list =  managerTemplate.processSampleList("2");
-		} catch (BusinessException e) {
-			errorMessage = ErrorConstants.BUSINESS_EXCEPTION;
-			result = input;
-		} catch (SystemException e) {
-			errorMessage = ErrorConstants.SYSTEM_EXCEPTION;
-			result = error;
-		} catch (ConnectionException e) {
-			errorMessage = ErrorConstants.CONNECTION_EXCEPTION;
-			result = error;
-		} catch (Exception e){
-			errorMessage = ErrorConstants.BUSINESS_EXCEPTION;
-			result = input;
-		}*/
 		
 		log.debug("end action - result: " + result);
 		return result;

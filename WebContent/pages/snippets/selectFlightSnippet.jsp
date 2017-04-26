@@ -24,9 +24,9 @@
 									<input type="radio" name="flightId" value="${flight.flightId}" disabled> Flight ${flight.flightId}
 								</s:else>
 							</td>
-							<td>${flight.departureTime}</td>
-							<td>${flight.arrivalTime}</td>
-							<td>${sessionScope.ticket.flight.route.price}</td>
+							<td class="flightDepartureTime">${flight.departureTime}</td>
+							<td class="flightArrivalTime">${flight.arrivalTime}</td>
+							<td class="flightPrice">${sessionScope.ticket.flight.route.price}</td>
 							<td>${flight.seatingCapacity-flight.numberOfOccupiedSeats}</td>
 							<td>
 								<s:if test="%{#flight.seatingCapacity-#flight.numberOfOccupiedSeats > 0}">
