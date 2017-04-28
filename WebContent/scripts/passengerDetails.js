@@ -1,35 +1,40 @@
 $(document).ready(function(){
-/*	$(document).on("submit", "#passengersForm", function(){
-		var passengerJSON = {};
+	$(document).on("submit", "#passengersForm", function(){
+		var passenger;
+		var passengers = [];
 		for (var int = 1; int <= $("#pax").val(); int++) {
-			passengerJSON[int - 1] = [];
-			passengerJSON[int - 1]["prefix"] = $("#prefix" + int).val();
-			passengerJSON[int - 1]["firstName"] = $("#firstName" + int).val();
-			passengerJSON[int - 1]["middleName"] = $("#middleName" + int).val();
-			passengerJSON[int - 1]["lastName"] = $("#lastName" + int).val();
-			passengerJSON[int - 1]["birthDay"] = $("#birthDay" + int).val();
+			passenger = {
+				prefix: $("#prefix" + int).val(),
+				firstName: $("#firstName" + int).val(),
+				middleName: $("#middleName" + int).val(),
+				lastName: $("#lastName" + int).val(),
+				birthDay: $("#birthDay" + int).val()
+			}
+			passengers.push(passenger)
 		}
-		alert(JSON.stringify(passengerJSON))
+		alert(JSON.stringify(passengers));
+		submitAction = passengers;
 		return false;
-	});*/
+	});
 });
 
-(function ($) {
-    $.fn.serializeFormJSON = function () {
-
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function () {
-        	o[this.name] = this.value || '';
-            if (o[this.name]) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-})(jQuery);
+function submitAction(passengers) {
+	$.ajax({
+		url : "passenger-details-submit",
+		type : "POST",
+		dataType : "json",
+		async : false,
+		cache : true,
+		data : {
+			message: passengers
+		},
+		success : function(data) {
+			if (data.length > 0) {
+				response(data);
+				console.log(data);
+			} else {
+				response([ "No Results Found" ]);
+			}
+		}
+	});
+}
