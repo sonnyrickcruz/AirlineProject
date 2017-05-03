@@ -1,8 +1,17 @@
 package com.airline.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
+import com.airline.bean.BaggageBean;
+import com.airline.bean.InsuranceBean;
+import com.airline.bean.MealBean;
+import com.airline.bean.PassengerBean;
+import com.airline.bean.PaxBean;
 import com.airline.bean.RouteBean;
+import com.airline.bean.SeatBean;
 import com.airline.bean.TicketBean;
 import com.airline.exception.BusinessException;
 import com.airline.exception.ConnectionException;
@@ -22,6 +31,7 @@ public class SearchFlightsAction extends BaseAction {
 	private String searchOrigin;
 	private String searchDestination;
 	private Double noOfPax;
+	private int step = 1;
 
 	/**
 	 * This action is to display the input for searching flights
@@ -33,6 +43,7 @@ public class SearchFlightsAction extends BaseAction {
 		String result = input;
 
 		TicketBean ticket = (TicketBean) session.get("ticket");
+		session.put("step", step);
 		SearchFlightsManager searchFlightsManager = new SearchFlightsManager();
 		try {
 			if (ticket == null) {
@@ -91,6 +102,8 @@ public class SearchFlightsAction extends BaseAction {
 		try {
 			SearchFlightsManager searchFlightsManager = new SearchFlightsManager();
 			OriginDestination originDestination = OriginDestination.getInstance();
+			List<PaxBean> paxes = new ArrayList<>();
+			PaxBean pax;
 			TicketBean ticket = (TicketBean) session.get("ticket");
 			RouteBean routeBean;
 			if (ticket == null) {
@@ -101,6 +114,16 @@ public class SearchFlightsAction extends BaseAction {
 			if (route != null) {
 				routeBean = originDestination.getRouteById(route);
 				routeBean.setPax(noOfPax);
+				for (int i = 0; i < noOfPax; i++) {
+					pax = new PaxBean();
+					pax.setBaggage(new BaggageBean());
+					pax.setInsurance(new InsuranceBean());
+					pax.setMeal(new MealBean());
+					pax.setPassenger(new PassengerBean());
+					pax.setSeat(new SeatBean());
+					paxes.add(pax);
+				}
+				ticket.setPassengers(paxes);
 				ticket.getFlight().setRoute(routeBean);
 			}
 			ticket.getFlight().setDepartureDate(searchDepartureDate);

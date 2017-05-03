@@ -33,9 +33,11 @@ public class AddonsAction extends BaseAction {
 	private String[] mealArray;
 	private String[] baggageArray;
 	private String[] insuranceArray;
+	private int step = 5;
 
 	public String execute() {
 		log.debug("Start");
+		session.put("step", step);
 		passengerList = new ArrayList<PassengerBean>();
 		List<InsuranceBean> insuranceList;
 		List<BaggageBean> baggageList;

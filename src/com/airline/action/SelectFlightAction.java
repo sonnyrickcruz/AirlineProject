@@ -17,6 +17,7 @@ public class SelectFlightAction extends BaseAction {
 	private List<FlightBean> flights;
 	private String departureDate;
 	private String flightId;
+	private int step = 2;
 
 	/**
 	 * displays flights available for the selected route and date
@@ -28,6 +29,7 @@ public class SelectFlightAction extends BaseAction {
 		String result = input;
 
 		TicketBean ticket = (TicketBean) session.get("ticket");
+		session.put("step", step);
 		log.debug(ticket);
 		log.debug("end action - result: " + result);
 		return result;

@@ -105,11 +105,11 @@
 		</div>
 	</div>
 
-</div>
+</div><!-- 
 <form id="airplaneForm" action="aircraftAction" method="POST">
 	<button type="submit">AIRPLANE</button>
 </form>
 <form id="airportForm" action="airportAction" method="POST">
 	<button type="submit">AIRPORT</button>
 </form>
-<a type="button" class="btn btn-success btn-block" href="add-ons">Addons</a>
+<a type="button" class="btn btn-success btn-block" href="add-ons">Addons</a> -->

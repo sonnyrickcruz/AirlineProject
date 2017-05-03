@@ -8,12 +8,12 @@ $(document).ready(function(){
 				firstName: $("#firstName" + int).val(),
 				middleName: $("#middleName" + int).val(),
 				lastName: $("#lastName" + int).val(),
-				birthDay: $("#birthDay" + int).val()
+				birthday: $("#birthDay" + int).val()
 			}
 			passengers.push(passenger)
 		}
+		submitAction(JSON.stringify(passengers));
 		alert(JSON.stringify(passengers));
-		submitAction = passengers;
 		return false;
 	});
 });
@@ -35,6 +35,9 @@ function submitAction(passengers) {
 			} else {
 				response([ "No Results Found" ]);
 			}
+		},
+		error : function(data) {
+			alert("bes");
 		}
 	});
 }

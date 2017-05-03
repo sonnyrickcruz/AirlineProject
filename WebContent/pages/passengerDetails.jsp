@@ -1,6 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
 <div id="passengers">
 	<input type="hidden" id="pax" value="${sessionScope.ticket.flight.route.pax}">
 	<form id="passengersForm" action="">
